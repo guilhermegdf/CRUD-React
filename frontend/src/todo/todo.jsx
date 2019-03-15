@@ -19,7 +19,7 @@ export default class Todo extends Component {
 
         this.handleRemove = this.handleRemove.bind(this)
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
-        this.handleMarkAsPedding = this.handleMarkAsPedding.bind(this)
+        this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         
         this.refresh()
     }
@@ -58,7 +58,7 @@ export default class Todo extends Component {
         .then(resp => this.refresh(this.state.description))
     }
 
-    handleMarkAsPedding(todo) {
+    handleMarkAsPending(todo) {
         axios.put(`${URL}/${todo._id}`, {...todo, done: false})
         .then(resp => this.refresh(this.state.description))
     }
